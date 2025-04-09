@@ -11,6 +11,7 @@ contract skky_1 {
         num = initValue;
         cnt = 0;
         ownerAddress = msg.sender;
+        storeData = 10;
     }
 
     function getOwner() public view returns (address) {
@@ -56,4 +57,37 @@ contract skky_1 {
             sum += data[i];
         }
     }
+    
+    uint256 public storeData;
+    uint256[] private storedArray;
+    uint256 private answer = 42;
+
+
+
+    function inputArray(uint256 val) external {
+        storedArray.push(val);
+    }
+
+
+    function getArray() external view returns(uint256[] memory) {
+        return storedArray;
+    }
+
+
+
+    function guessNumber(uint256 input) external view returns (string memory){
+        if (input > answer){
+            return unicode"큽니다";
+        } else if (input < answer){
+            return unicode"작습니다";
+        } else{
+            return unicode"맞습니다";
+        }
+    }
+
+    function multiplyStore(uint256 x) external view returns(uint256 ) {
+        return storeData*x;
+        
+    }
+
 }
