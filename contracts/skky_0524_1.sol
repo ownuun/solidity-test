@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
 interface IERC721 {
     event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
     event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);
@@ -14,6 +17,7 @@ interface IERC721 {
 
     function setApprovalForAll(address operater, bool _approved) external;    
     function isApprovedForAll(address owner, address operater) external view returns(bool); 
+
 }
 interface IERC721Receiver {
     function onERC721Received(
