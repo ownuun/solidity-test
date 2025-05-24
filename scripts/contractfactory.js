@@ -8,11 +8,11 @@ async function main() {
     console.log("복원된 지갑 주소:", wallet.address);
 
     const ContractFactory = await ethers.getContractFactory(
-        "skky_1",
+        "skky_0517_1",
         wallet
     );
 
-    const contract = await ContractFactory.deploy(10);
+    const contract = await ContractFactory.deploy("ownuun Token", "OWN", 10n);
 
     console.log("컨트랙트 배포 완료: ", contract.target);
 
